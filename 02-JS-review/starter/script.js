@@ -147,7 +147,7 @@ function getBook(id) {
 
 const books = getBooks();
 books;
-const book = getBook(2);
+const book = getBook(1);
 // const title = book.title;
 // const author = book.author;
 const { title, author, pages, publicationDate, genres, hasMovieAdaptation } =
@@ -157,6 +157,23 @@ console.log(author, title, genres);
 // const primaryGenre = genres[0];
 // const secondaryGenre = genres[1];
 
-const [primaryGenre, secondaryGenre] = genres;
+// Rest Operator
+const [primaryGenre, secondaryGenre, ...otherGenres] = genres;
 
 console.log(primaryGenre, secondaryGenre);
+console.log(otherGenres);
+
+// Spread Operator
+const newGenres = [...genres, "anilSpecial"];
+console.log(newGenres);
+// [ 'science fiction', 'humor', 'speculative fiction', 'short stories', 'fantasy',  'anilSpecial']
+
+const updatedBook = {
+  ...book,
+  // Add new property
+  moviePublicationDatE: "2001-12-19",
+
+  // Overwriting an existing property
+  pages: 1210,
+};
+console.log(updatedBook);
