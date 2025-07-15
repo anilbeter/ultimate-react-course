@@ -218,3 +218,17 @@ console.log(countWrong); // no data
 const countWrongTrueVersion =
   book.reviews.librarything.reviewsCount ?? "no data";
 console.log(countWrongTrueVersion); // 0
+
+// Optional Chaining
+function getTotalReviewCount(book) {
+  const goodread = book.reviews.goodreads?.reviewsCount;
+  const librarything = book.reviews.librarything?.reviewsCount ?? 0;
+  return goodread + librarything;
+}
+
+console.log(getTotalReviewCount(book));
+
+console.log(undefined ?? 0); // 0
+console.log("anil" ?? 0); // anil
+console.log(0 ?? "anil"); // 0
+console.log(undefined ?? "anil"); // anil
