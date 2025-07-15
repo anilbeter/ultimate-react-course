@@ -233,7 +233,8 @@ console.log(undefined ?? 0); // 0
 console.log("anil" ?? 0); // anil
 console.log(0 ?? "anil"); // 0
 console.log(undefined ?? "anil"); // anil
-*/
+
+
 
 // The Array map Method
 const books = getBooks();
@@ -319,3 +320,11 @@ const booksAfterUpdate = booksAfterDelete.map((book) =>
   book.id === 1 ? { ...book, pages: 1209, isAnilFav: true } : book
 );
 console.log(booksAfterUpdate);
+
+*/
+// Asynchronous JavaScript: Promises
+fetch("https://jsonplaceholder.typicode.com/todos")
+  .then((res) => res.json())
+  .then((data) => console.log(data));
+
+console.log("jonas");
