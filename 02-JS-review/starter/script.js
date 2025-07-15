@@ -296,3 +296,26 @@ console.log(sortedByPages);
 //   { title: 'The Cyberiad', pages: 295 },
 //   { title: 'Harry Potter and the Philosopher\'s Stone', pages: 223 }
 // ]
+
+// Working With Immutable Arrays
+
+// 1) Add book object to array
+const newBook = {
+  id: 6,
+  title: "Harry Potter and the Chamber of Secrets",
+  author: "J. K. Rowling",
+};
+
+const bookAfterAdd = [...books, newBook];
+console.log(bookAfterAdd);
+
+// 2) Delete book object from array
+const booksAfterDelete = bookAfterAdd.filter((book) => book.id !== 3);
+console.log(booksAfterDelete);
+// Id si 3 olani filtrele (cikar)
+
+// 3) Update book object in the array
+const booksAfterUpdate = booksAfterDelete.map((book) =>
+  book.id === 1 ? { ...book, pages: 1209, isAnilFav: true } : book
+);
+console.log(booksAfterUpdate);
