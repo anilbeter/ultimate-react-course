@@ -262,3 +262,7 @@ const adventureBooks = books
   .map((book) => book.title);
 console.log(adventureBooks);
 // ["The Lord of the Rings", "Dune", "Harry Potter and the Philosopher's Stone"];
+
+// The Array reduce Method
+const pagesAllBooks = books.reduce((acc, book) => acc + book.pages, 0);
+console.log(pagesAllBooks);
