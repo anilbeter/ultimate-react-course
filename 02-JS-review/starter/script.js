@@ -147,7 +147,7 @@ function getBook(id) {
 
 const books = getBooks();
 books;
-const book = getBook(1);
+const book = getBook(2);
 // const title = book.title;
 // const author = book.author;
 const { title, author, pages, publicationDate, genres, hasMovieAdaptation } =
@@ -194,3 +194,27 @@ getYearArrow = (str) => str.split("-")[0];
 
 console.log(getYear(publicationDate));
 console.log(getYearArrow(publicationDate));
+
+// Short-Circuiting And Logical Operators: &&, ||, ??
+
+console.log(true && "some string"); // some string
+console.log(false && "some string"); // false
+console.log(hasMovieAdaptation && "this book has a movie!"); // this book has a movie!
+
+// falsy: 0, '', null, false, undefined
+console.log("jonas" && "anil"); // anil
+console.log(0 && "anil"); // 0
+
+console.log(true || "some string"); // true
+console.log(false || "some string"); // some string
+
+const spanishTranslation = book.translations.japanese || "NOT TRANSLATED";
+console.log(spanishTranslation); // NOT TRANSLATED
+
+console.log(book.reviews.librarything.reviewsCount); // 0
+const countWrong = book.reviews.librarything.reviewsCount || "no data";
+console.log(countWrong); // no data
+
+const countWrongTrueVersion =
+  book.reviews.librarything.reviewsCount ?? "no data";
+console.log(countWrongTrueVersion); // 0
