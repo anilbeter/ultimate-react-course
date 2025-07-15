@@ -266,3 +266,33 @@ console.log(adventureBooks);
 // The Array reduce Method
 const pagesAllBooks = books.reduce((acc, book) => acc + book.pages, 0);
 console.log(pagesAllBooks);
+
+// The Array sort Method
+const y = [3, 7, 1, 9, 7];
+const sorted = y.sort((a, b) => a - b);
+console.log(sorted); // [ 1, 3, 7, 7, 9 ]
+console.log(y); // [ 1, 3, 7, 7, 9 ]
+
+const arr = [1, 7, 9, 4, 23, 4, 2, 9];
+const sortedArrWithImmutable = arr.toSorted((a, b) => a - b);
+console.log(sortedArrWithImmutable); // Array(8) [ 1, 2, 4, 4, 7, 9, 9, 23 ]
+console.log(arr); // Array(8) [ 1, 7, 9, 4, 23, 4, 2, 9 ]
+console.log(arr.toSorted((a, b) => b - a)); // Array(8) [ 23, 9, 9, 7, 4, 4, 2, 1 ]
+
+// old school way
+const sortedOldSchool = arr.slice().sort((a, b) => a - b);
+console.log(sortedOldSchool); // Array(8) [ 1, 2, 4, 4, 7, 9, 9, 23 ]
+console.log(arr); // Array(8) [ 1, 7, 9, 4, 23, 4, 2, 9 ]
+
+const sortedByPages = books
+  .slice()
+  .sort((a, b) => b.pages - a.pages)
+  .map((book) => Object.create({ title: book.title, pages: book.pages }));
+console.log(sortedByPages);
+// [
+//   { title: 'The Lord of the Rings', pages: 1216 },
+//   { title: 'A Game of Thrones', pages: 835 },
+//   { title: 'Dune', pages: 658 },
+//   { title: 'The Cyberiad', pages: 295 },
+//   { title: 'Harry Potter and the Philosopher\'s Stone', pages: 223 }
+// ]
