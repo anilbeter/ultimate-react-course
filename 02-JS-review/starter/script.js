@@ -143,6 +143,7 @@ function getBook(id) {
   return data.find((d) => d.id === id);
 }
 
+/*
 // Destructring
 
 const books = getBooks();
@@ -232,3 +233,20 @@ console.log(undefined ?? 0); // 0
 console.log("anil" ?? 0); // anil
 console.log(0 ?? "anil"); // 0
 console.log(undefined ?? "anil"); // anil
+*/
+
+// The Array map Method
+const books = getBooks();
+
+const x = [1, 2, 3, 4].map((el) => el * 2);
+console.log(x); // [2, 4, 6, 8]
+
+const titles = books.map((book) => book.title);
+console.log(titles);
+
+const essentialData = books.map((book) => ({
+  title: book.title,
+  author: book.author,
+}));
+
+console.log(essentialData);
