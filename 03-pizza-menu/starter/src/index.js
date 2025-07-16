@@ -14,9 +14,6 @@ function App() {
 }
 
 function Header() {
-  // const style = { color: "red", fontSize: "48px", textTransform: "uppercase" };
-
-  // return <h1 style={style}>Fast React Pizza Co.</h1>;
   return (
     <header className="header">
       <h1>Fast React Pizza Co.</h1>
@@ -28,17 +25,25 @@ function Menu() {
   return (
     <main className="menu">
       <h2>Our Menu</h2>
-      <Pizza />
+      <Pizza
+        name="Pizza Spinaci"
+        ingredients="Tomato, mozarello"
+        photoName="pizzas/spinaci.jpg"
+        price={12}
+      />
     </main>
   );
 }
 
-function Pizza() {
+function Pizza({ name, ingredients, photoName, price }) {
   return (
-    <div>
-      <img src="pizzas/spinaci.jpg" alt="Spinaci Pizza" />
-      <h3>{pizzaData[0].name}</h3>
-      <p>{pizzaData[0].ingredients}</p>
+    <div className="pizza">
+      <img src={photoName} alt={name} />
+      <div>
+        <h3>{name}</h3>
+        <p>{ingredients}</p>
+        <span>{price}</span>
+      </div>
     </div>
   );
 }
