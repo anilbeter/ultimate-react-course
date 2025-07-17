@@ -59,8 +59,20 @@ function Menu() {
 }
 
 function Pizza({ pizza }) {
+  // if (pizza.soldOut)
+  //   return (
+  //     <div className="pizza sold-out">
+  //       <img src={pizza.photoName} alt={pizza.name} />
+  //       <li>
+  //         <h3>{pizza.name}</h3>
+  //         <p>{pizza.ingredients}</p>
+  //         <span>{pizza.price}</span>
+  //       </li>
+  //     </div>
+  //   );
+
   return (
-    <div className="pizza">
+    <div className={pizza.soldOut ? "pizza sold-out" : "pizza"}>
       <img src={pizza.photoName} alt={pizza.name} />
       <li>
         <h3>{pizza.name}</h3>
@@ -81,6 +93,13 @@ function Footer() {
   // if (hour >= openHour && hour <= closeHour)
   //   console.log("We're currently open!");
   // else console.log("Sorry we're closed");
+
+  if (!isOpen)
+    return (
+      <footer className="footer">
+        <p>We're closed! This is coming from multiple return!</p>
+      </footer>
+    );
 
   return (
     <footer className="footer">
