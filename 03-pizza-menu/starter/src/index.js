@@ -30,20 +30,26 @@ function Menu() {
       <h2>Our Menu</h2>
 
       {numPizzas > 0 ? (
-        <ul className="pizzas">
-          {pizzas.map((pizza) => (
-            <Pizza
-              // key={pizza.name}
-              // name={pizza.name}
-              // ingredients={pizza.ingredients}
-              // price={pizza.price}
-              // photoName={pizza.photoName}
-              // soldOut={pizza.soldOut}
-              pizza={pizza}
-              key={pizza.name}
-            />
-          ))}
-        </ul>
+        <>
+          <p>
+            Otantik Italyan lezzeti. Ozenle secilmis 6 yaratici tad. Hepsi bizim
+            ozel tas firinimizdan, hepsi organik, hepsi lezzetli.
+          </p>
+          <ul className="pizzas">
+            {pizzas.map((pizza) => (
+              <Pizza
+                // key={pizza.name}
+                // name={pizza.name}
+                // ingredients={pizza.ingredients}
+                // price={pizza.price}
+                // photoName={pizza.photoName}
+                // soldOut={pizza.soldOut}
+                pizza={pizza}
+                key={pizza.name}
+              />
+            ))}
+          </ul>
+        </>
       ) : (
         <p>We're still working on our menu. Please come back later.</p>
       )}
@@ -94,27 +100,39 @@ function Footer() {
   //   console.log("We're currently open!");
   // else console.log("Sorry we're closed");
 
-  if (!isOpen)
-    return (
-      <footer className="footer">
-        <p>We're closed! This is coming from multiple return!</p>
-      </footer>
-    );
+  // if (!isOpen)
+  //   return (
+  //     <footer className="footer">
+  //       <p>We're closed! This is coming from multiple return!</p>
+  //     </footer>
+  //   );
 
   return (
     <footer className="footer">
       {isOpen ? (
-        <div className="order">
-          <p>We're open until {closeHour}:00. Come visit us or order online.</p>
-          <button className="btn">Order</button>
-        </div>
+        <OrderMessage closeHour={closeHour} />
       ) : (
-        <p>
-          We're currently closed. Please come between {openHour}:00 and{" "}
-          {closeHour}:00.
-        </p>
+        <CloseMessage openHour={openHour} closeHour={closeHour} />
       )}
     </footer>
+  );
+}
+
+function OrderMessage({ closeHour }) {
+  return (
+    <div className="order">
+      <p>We're open until {closeHour}:00. Come visit us or order online.</p>
+      <button className="btn">Order</button>
+    </div>
+  );
+}
+
+function CloseMessage({ openHour, closeHour }) {
+  return (
+    <p>
+      We're currently closed. Please come between {openHour}:00 and {closeHour}
+      :00.
+    </p>
   );
 }
 
