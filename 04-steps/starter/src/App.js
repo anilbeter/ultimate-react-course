@@ -7,6 +7,10 @@ const messages = [
 export default function App() {
   const step = 1;
 
+  function handlePrevious() {}
+
+  function handleNext() {}
+
   return (
     <div className="steps">
       <div className="numbers">
@@ -20,10 +24,17 @@ export default function App() {
       </p>
 
       <div className="buttons">
-        <button style={{ backgroundColor: "#7950f2", color: "#ffffff" }}>
+        <button
+          style={{ backgroundColor: "#7950f2", color: "#ffffff" }}
+          onClick={handlePrevious}
+          // onMouseEnter={() => alert("TEST")}
+        >
           Previous
         </button>
-        <button style={{ backgroundColor: "#7950f2", color: "#ffffff" }}>
+        <button
+          style={{ backgroundColor: "#7950f2", color: "#ffffff" }}
+          onClick={handleNext}
+        >
           Next
         </button>
       </div>
